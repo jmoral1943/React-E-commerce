@@ -1,0 +1,26 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  max-width: 1200px;
+  padding-top: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 0;
+  padding-bottom: 20px;
+}
+
+@media(min-width: 800px) {
+  .Header {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    max-width: 1200px;
+    padding-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    padding-bottom: 20px;
+  }
+}

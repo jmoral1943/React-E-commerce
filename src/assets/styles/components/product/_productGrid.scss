@@ -1,0 +1,17 @@
+.ProductGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 80vw;
+  margin: 0 auto;
+  grid-gap: 20px;
+}
+
+@media(min-width: 800px) {
+  .ProductGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80vw;
+    margin: 40px auto 50px auto;
+    grid-gap: 20px;
+  }
+}
