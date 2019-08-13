@@ -6,11 +6,12 @@ import { Provider } from 'react-redux';
 
 import './assets/styles/styles.scss';
 import Home from './routes/home/index';
-import Product from './routes/products/index';
+import Product from './components/Products/index';
 import ContactUs from './routes/contact/index';
 import Cart from './routes/cart/index';
 import PageNotFound from './routes/pageNotFound/index';
 import reducer from './store/reducer';
+import Header from './components/Layout/Header/Header';
 
 export const store = createStore(
   reducer,
@@ -20,7 +21,8 @@ export const store = createStore(
 
 const routing = (
   <Router>
-    <div>
+    <Header />
+    <main>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/products" component={Product} />
@@ -28,7 +30,7 @@ const routing = (
         <Route path="/cart" component={Cart} />
         <Route component={PageNotFound} />
       </Switch>
-    </div>
+    </main>
   </Router>
 );
 
