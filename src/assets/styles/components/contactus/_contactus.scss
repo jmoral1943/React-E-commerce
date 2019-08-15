@@ -14,15 +14,15 @@
 
 .ContactUs__content {
   margin: 8vh auto 0 auto;
-  width: 70vw;
+  width: 80vw;
   display: flex;
+  flex-direction: column;
 }
 
 @media(min-width: 450px) {
   .ContactUs__content {
     margin: 8vh auto 0 auto;
-    width: 90vw;
-    display: flex;
+    width: 80vw;
   }
 }
 
@@ -45,5 +45,6 @@
     margin: 8vh auto 0 auto;
     width: 70vw;
     display: flex;
+    flex-direction: row;
   }
 }

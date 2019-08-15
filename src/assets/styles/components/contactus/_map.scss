@@ -1,6 +1,7 @@
 .MapCard {
-  width: 35vw;
+  width: 80vw;
   overflow: hidden;
+  margin-top: 2em;
 }
 
 .MapCard__card {
@@ -10,7 +11,7 @@
 }
 
 .MapCard__image {
-  width: 30vw;
+  width: 100%;
 }
 
 .MapCard__title {
@@ -26,9 +27,9 @@
   color: white;
 }
 
-@media(min-width: 450px) {
+@media(min-width: 450px) {  
   .MapCard__image {
-    width: 35vw;
+    width: 100%;
   }
 
   .MapCard__title {
@@ -44,6 +45,7 @@
 
 @media(min-width: 800px) {
   .MapCard {
+    margin-top: unset;
     width: 35vw;
     overflow: hidden;
   }
@@ -55,7 +57,7 @@
   }
   
   .MapCard__image {
-    width: 30vw;
+    width: 100%;
   }
   
   .MapCard__title {

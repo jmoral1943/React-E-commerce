@@ -10,8 +10,10 @@
 }
 
 .Footer__links {
-  width: 20vw;
+  width: 70vw;
   margin: 3em auto;
+  display: flex;
+  justify-content: space-around;
 }
 
 .Footer__text {
@@ -22,8 +24,8 @@
 }
 
 .Footer__copyright {
-  width: 20vw;
-  margin: 0 auto;
+  width: 80vw;
+  margin: 0 auto 4em auto;
 }
 
 .Footer__highlightText {
@@ -36,6 +38,24 @@
 
 
 @media(min-width: 450px) {
+  .Footer__links {
+    width: 70vw;
+    margin: 3em auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .Footer__text {
+    margin-bottom: .5em;
+  }
+
+  .Footer__copyright {
+    width: 40vw;
+    margin: 0 auto 4em auto;
+  }
+}
+
+@media(min-width: 700px) {
   .Footer__links {
     width: 40vw;
     margin: 3em auto;

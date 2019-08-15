@@ -108,9 +108,13 @@ const reducer = (state = initialState, action) => {
             let x = []
             
             newFilter.forEach((item) => {
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
+              if(item === 'lessThan100') {
+                return null;
+              } else {
+                x = Data.products.filter((product) => {
+                  return product.tags.includes(item)
+                })
+              }
               newItems = newItems.concat(x)
             })
           }
@@ -175,6 +179,7 @@ const reducer = (state = initialState, action) => {
                 x = Data.products.filter((product) => {
                   return product.tags.includes(item)
                 })
+                
                 newItems = newItems.concat(x)
               })
             }
@@ -237,12 +242,20 @@ const reducer = (state = initialState, action) => {
           if (newFilter.length > 0) {
             let x = []
             
-            newFilter.forEach((item) => {
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
+            newFilter.forEach((item, index) => {
+                x = Data.products.filter((product) => {
+                
+                  return product.price < 100;
+                })
+              // }
               newItems = newItems.concat(x)
             })
+
+            newItems = newItems.filter((item, index) => {
+              return !newItems.indexOf(item, index + 1) > -1;
+            })
+
+            console.log(newItems)
           }
           return newItems
         }
@@ -266,6 +279,7 @@ const reducer = (state = initialState, action) => {
             let x = []
             
             newFilter.forEach((item) => {
+              
               x = Data.products.filter((product) => {
                 return product.tags.includes(item)
               })
@@ -306,7 +320,7 @@ const reducer = (state = initialState, action) => {
               
               newFilter.forEach((item) => {
                 x = Data.products.filter((product) => {
-                  return product.tags.includes(item)
+                  return product.price > 100
                 })
                 newItems = newItems.concat(x)
               })
