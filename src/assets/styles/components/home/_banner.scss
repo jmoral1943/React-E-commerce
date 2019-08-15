@@ -1,0 +1,20 @@
+.Banner {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+}
+
+.Banner__image {
+  width: 100vw;
+  filter: brightness(90%);
+
+}
+
+.Banner__text {
+  position: absolute;
+  top: 20%;
+  right: 8vw;
+  font-size: 5em;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}

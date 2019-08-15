@@ -5,13 +5,14 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import './assets/styles/styles.scss';
-import Home from './routes/home/index';
+import Home from './components/Home/index';
 import Product from './components/Products/index';
 import ContactUs from './routes/contact/index';
 import Cart from './routes/cart/index';
 import PageNotFound from './routes/pageNotFound/index';
 import reducer from './store/reducer';
 import Header from './components/Layout/Header/Header';
+import Footer from './components/Layout/Footer/Footer';
 
 export const store = createStore(
   reducer,
@@ -31,6 +32,7 @@ const routing = (
         <Route component={PageNotFound} />
       </Switch>
     </main>
+    <Footer />
   </Router>
 );
 

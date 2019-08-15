@@ -1,0 +1,57 @@
+.Home__slider {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.Carousel-container {
+  position: relative;
+}
+
+.Carousel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  filter: brightness(60%);
+  transition: 1s;
+  width: 100vw;
+  opacity: 0;
+}
+
+.Carousel--starting {
+  opacity: 1;
+}
+
+.Slider__text {
+  position: absolute;
+  top: 30%;
+  color: white;
+  width: 100vw;
+}
+
+.Slider__header {
+  font-size: 3.5em;
+  margin: 0 auto 1em auto;
+  width: 80vw;
+  text-align: center;
+}
+
+.Slider__leftArrow,
+.Slider__rightArrow {
+  position: absolute;
+  width: 2vw;
+  background-color: rgba(255,255,255, 0.6);
+  cursor: pointer;
+}
+
+.Slider__leftArrow {
+  top:50%;
+  left:0;
+}
+
+.Slider__rightArrow {
+  top:50%;
+  right: 0;
+
+}

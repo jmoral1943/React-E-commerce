@@ -1,0 +1,50 @@
+.BannerCard {
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.BannerCard__image {
+  width: 100vw;
+  margin-top: -30vh;
+  filter: brightness(80%);
+}
+
+.BannerCard__header {
+  text-align: center;
+  color: white;
+  font-size: 4em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
+.BannerCard__content {
+  position: absolute;
+  left: 25vw;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BannerCard__links {
+  margin-top: 2em;
+}
+
+.BannerCard__button--left,
+.BannerCard__button--right {
+  text-decoration: none;
+  color: white;
+}
+
+.BannerCard__button--left {
+  background: black;
+  padding: 1em;
+  margin-right: 2em;
+}
+
+.BannerCard__button--right {
+  border: solid 1px white;
+  padding: calc(1em - 1px);
+}
