@@ -1,6 +1,6 @@
 import React from 'react';
 import imageOne from '../../../assets/img/carousel-photoOne.jpeg';
-import imageTwo from '../../../assets/img/carousel-photoTwo.jpeg';
+import imageTwo from '../../../assets/img/carousel-photoTwo.jpg';
 import imageThree from '../../../assets/img/carousel-photoThree.jpeg';
 import leftArrow from '../../../assets/img/left.png';
 import rightArrow from '../../../assets/img/right.png';
@@ -45,9 +45,9 @@ const Hero = () => {
     <div className="Home__slider">
       
       <div className="Carousel-container">
-        <img className="Carousel" src={imageOne} alt="surfing"/>
+        <img className="Carousel" src={imageThree} alt="surfing"/>
         <img className="Carousel" src={imageTwo} alt="crystal-blue-surfing"/>
-        <img className="Carousel Carousel--starting" src={imageThree} alt="crystal-blue-surfing"/>          
+        <img className="Carousel Carousel--starting" src={imageOne} alt="crystal-blue-surfing"/>          
       </div>
       
       <div className="Slider__text">
