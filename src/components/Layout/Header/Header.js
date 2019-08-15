@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo/Logo';
-import Nav from './NavBar/Nav';
+import Nav from './Nav/Nav';
 
 class Header extends React.Component {
   state = {

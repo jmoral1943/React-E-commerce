@@ -43,12 +43,7 @@ const Hero = () => {
 
   return (
     <div className="Home__slider">
-      {/* <div class="carousel-container carousel-container--mobile">
-        <img class="desktop__homescreen--mobile carousel--mobile" src="../../../assets/img/mobile-carousel-photoOne.jpeg" alt="surfing"/>
-        <img class="desktop__homescreen--mobile carousel--mobile" src="./lib/img/mobile-carousel-photoTwo.jpeg" alt="crystal-blue-surfing"/>
-        <img class="desktop__homescreen--mobile carousel--mobile" src="./lib/img/mobile-carousel-photoThree.jpeg" alt="crystal-blue-surfing"/>          
-      </div> */}
-
+      
       <div className="Carousel-container">
         <img className="Carousel" src={imageOne} alt="surfing"/>
         <img className="Carousel" src={imageTwo} alt="crystal-blue-surfing"/>
@@ -57,7 +52,8 @@ const Hero = () => {
       
       <div className="Slider__text">
         <p className="Slider__header">EXPERIENCE THE OCEAN ENTIRELY</p>
-        <p className="Slider__header">DIFFERENTLY WITH ARC SURF</p>
+        <p className="Slider__header">DIFFERENTLY WITH</p>
+        <p className="Slider__header">ARC SURF</p>
       </div>
 
       <img className="Slider__leftArrow" src={leftArrow} alt="left-arrow" onClick={() => handleClick(-1)}/>
