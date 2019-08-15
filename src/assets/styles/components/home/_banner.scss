@@ -7,7 +7,7 @@
 .Banner__image {
   width: 100vw;
   filter: brightness(90%);
-
+  height: 100%;
 }
 
 .Banner__text {
@@ -18,4 +18,28 @@
   color: white;
   font-family: 'Raleway', sans-serif;
   letter-spacing: 5px;
+}
+
+@media(min-width: 800px) {
+  .Banner {
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+  }
+  
+  .Banner__image {
+    width: 100vw;
+    filter: brightness(90%);
+    height: unset;
+  }
+  
+  .Banner__text {
+    position: absolute;
+    top: 20%;
+    right: 5vw;
+    font-size: 4em;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 5px;
+  }
 }

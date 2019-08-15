@@ -28,6 +28,13 @@
   width: 100vw;
 }
 
+@media(min-width: 425px) {
+  .Nav__list {
+    max-width: unset;
+  }
+}
+
+
 @media(min-width: 800px) {
   .Nav {
     display: flex;

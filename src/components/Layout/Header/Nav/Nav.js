@@ -7,16 +7,16 @@ const Nav = (props) => (
     <Hamburger handleNav={props.handleNav}/>
     <ul className="Nav__list">
       <li>
-        <Link to="/" className="Nav__link">Home</Link>
+        <Link to="/" className="Nav__link" onClick={props.handleNav}>Home</Link>
       </li>
       <li>
-        <Link to="/products" className="Nav__link"> Shop</Link>
+        <Link to="/products" className="Nav__link" onClick={props.handleNav}> Shop</Link>
       </li>
       <li>
-        <Link to="/contact" className="Nav__link">Contact Us</Link>
+        <Link to="/contact" className="Nav__link" onClick={props.handleNav}>Contact Us</Link>
       </li>
       <li>
-        <Link to="/cart" className="Nav__link">Cart</Link>
+        <Link to="/cart" className="Nav__link" onClick={props.handleNav}>Cart</Link>
       </li>
     </ul>
   </nav>

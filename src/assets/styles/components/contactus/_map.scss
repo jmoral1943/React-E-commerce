@@ -25,3 +25,49 @@
   padding-bottom: 1em;
   color: white;
 }
+
+@media(min-width: 450px) {
+  .MapCard__image {
+    width: 35vw;
+  }
+
+  .MapCard__title {
+    padding: 3.4em 0 2em 0;
+    color: white;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+  }
+  
+  
+}
+
+@media(min-width: 800px) {
+  .MapCard {
+    width: 35vw;
+    overflow: hidden;
+  }
+  
+  .MapCard__card {
+    background-color: #b0b4bf;
+    padding-bottom: 2em;
+    padding-left: 1em;
+  }
+  
+  .MapCard__image {
+    width: 30vw;
+  }
+  
+  .MapCard__title {
+    padding: 3.4em 0 2em 0;
+    color: white;
+    font-weight: bolder;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+  }
+  
+  .MapCard__address {
+    padding-bottom: 1em;
+    color: white;
+  }
+}

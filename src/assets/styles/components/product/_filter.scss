@@ -36,6 +36,20 @@ button:focus {
   outline: none;
 }
 
+
+@media(min-width: 450px) {
+  .Filter__filters {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Filter__button {
+    margin-left: .5em;
+    margin-right: .5em;
+    margin-top: 1em;
+  }
+}
+
 @media(min-width: 800px) {
   .Filter {
     display: flex;
