@@ -15,7 +15,7 @@ const Hero = () => {
 
     if (x === -1) {
       // 2
-    let slide = document.querySelectorAll('.Carousel')
+      let slide = document.querySelectorAll('.Carousel')
       slide[i].style.opacity = 0;
 
 

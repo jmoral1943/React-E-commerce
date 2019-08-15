@@ -1,11 +1,12 @@
 import React from 'react';
-import logo from '../../../../assets/img/surf-logo.svg'
+import { Link } from 'react-router-dom';
+import logo from '../../../../assets/img/surf-logo.svg';
 
 const Logo = () => (
-  <div className="Logo">
+  <Link to="/" className="Logo">
     <img src={logo} alt="Logo" className="Logo__image"/>
     <p className="Logo__title">Arc Surf</p>
-  </div>
+  </Link>
 )
 
 export default Logo;

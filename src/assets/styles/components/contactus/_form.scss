@@ -1,0 +1,60 @@
+.Form {
+  width: 60vw;
+  margin-right: 1.5em;
+}
+
+.Form__fields {
+ 
+  display: flex;
+}
+
+.Form__labels {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.Form__label {
+  font-size: 1.5em;
+  margin-bottom: 6vh;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.Form__inputs {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 1em;
+}
+
+.Form__input {
+  margin-bottom: 5vh;
+  width: 90%;
+  padding: .5em;
+}
+
+.Form__button {
+  border: none;
+  font-size: 1.2em;
+  background: #b0b4bf;
+  padding: .5em;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0 0 75%;
+  width: 8vw;
+  right: 0;
+}
+
+.Form__input {
+  outline: none;
+}
+
+.Error {
+  border:solid 1px red;
+}
+
+.Input__error {
+  color: red;
+}
