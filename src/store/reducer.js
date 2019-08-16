@@ -39,6 +39,17 @@ const reducer = (state = initialState, action) => {
 
         const Filtering = () => {
 
+          if(newFilter.includes("moreThan100")) {
+            let x = Data.products.filter((product) => {
+              return product.price  > 100
+            })
+            return x;
+          }
+
+          if (newFilter.includes("lessThan100")) {
+            return null;
+          }
+
           if (newFilter.length > 0) {
             let x = []
             
@@ -103,6 +114,15 @@ const reducer = (state = initialState, action) => {
         let newItems = [];
 
         const Filtering = () => {
+
+          if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
+            let x = Data.products.filter((product) => {
+              return product.price > 100
+            })
+            return x
+          } else if (newFilter.includes("moreThan100")) {
+            return null;
+          }
 
           if (newFilter.length > 0) {
             let x = []
@@ -171,7 +191,11 @@ const reducer = (state = initialState, action) => {
           let newItems = [];
 
           const Filtering = () => {
-
+            
+            if (newFilter.includes("moreThan100")) {
+              return null;
+            }
+            
             if (newFilter.length > 0) {
               let x = []
               
@@ -200,7 +224,15 @@ const reducer = (state = initialState, action) => {
           let newItems = [];
 
           const Filtering = () => {
-
+            if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
+              let x = Data.products.filter((product) => {
+                return product.price > 100
+              })
+              return x
+            }
+            if (newFilter.includes("moreThan100")) {
+              return null;
+            }
             if (newFilter.length > 0) {
               let x = []
               
@@ -239,6 +271,22 @@ const reducer = (state = initialState, action) => {
 
         const Filtering = () => {
 
+          if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
+            let x = Data.products.filter((product) => {
+                
+              return product.price > 100;
+            })
+
+            return x
+          }
+
+          if (newFilter.includes("moreThan100")) {
+            return Data.products
+          }
+          if (newFilter.includes("surfboards")) {
+            return null;
+          }
+
           if (newFilter.length > 0) {
             let x = []
             
@@ -275,6 +323,13 @@ const reducer = (state = initialState, action) => {
 
         const Filtering = () => {
 
+          if (newFilter.includes("moreThan100")) {
+            let x = Data.products.filter((product) => {
+              return product.price > 100;
+            })
+            return x
+          }
+
           if (newFilter.length > 0) {
             let x = []
             
@@ -304,16 +359,25 @@ const reducer = (state = initialState, action) => {
       }
 
       case actionTypes.MORETHAN100:
-        console.log(state.moreThan100.filterOn);
         let newHighPriceState = !state.moreThan100.filterOn;
-        console.log(state.moreThan100.filterOn)
-        console.log(newHighPriceState)
+        
         if (newHighPriceState) {
           let newFilter = state.filters.concat(state.moreThan100.tag);
       
           let newItems = [];
 
           const Filtering = () => {
+
+            if (newFilter.includes("surfboard")) {
+              let x = Data.products.filter((product) => {
+                return product.price > 100
+              })
+              return x
+            }
+
+            if(newFilter.includes("shirts") || newFilter.includes("shoes")) {
+              return null;
+            }
 
             if (newFilter.length > 0) {
               let x = []
@@ -342,6 +406,13 @@ const reducer = (state = initialState, action) => {
           let newItems = [];
 
           const Filtering = () => {
+
+            if (newFilter.includes("lessThan100") || newFilter.includes("shirts") || newFilter.includes("shoes")) {
+              let x = Data.products.filter((product) => {
+                return product.price < 100
+              })
+              return x
+            }
 
             if (newFilter.length > 0) {
               let x = []
