@@ -15,9 +15,6 @@ const Nav = (props) => (
       <li>
         <Link to="/contact" className="Nav__link" onClick={props.handleNav}>Contact Us</Link>
       </li>
-      <li>
-        <Link to="/cart" className="Nav__link" onClick={props.handleNav}>Cart</Link>
-      </li>
     </ul>
   </nav>
 );

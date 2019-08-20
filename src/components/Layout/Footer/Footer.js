@@ -12,7 +12,7 @@ const Footer = () => (
     <div className="Footer__copyright">
       <p  className="Footer__highlightText" >ARC SURF</p>
       <p className="Footer__text">&copy; Copyright 2019 Arc Surf Inc.</p>
-      <p className="Footer__text">All rights reserved. Powered by Rainmaker</p>
+      <p className="Footer__text">All rights reserved. Powered by Rainmaker Last updated August 16, 2019</p>
     </div>
   </footer>
 );

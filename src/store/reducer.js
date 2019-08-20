@@ -1,6 +1,10 @@
 import Data from '../data/products.json';
 import * as actionTypes from './actions';
 
+
+let JSONdata = Data.surfboards.concat(Data.shirts)
+JSONdata = JSONdata.concat(Data.shoes)
+
 const initialState = {
   surfboard: {
     filterOn: false,
@@ -22,7 +26,7 @@ const initialState = {
     filterOn: false,
     tag: 'moreThan100'
   },
-  items: Data.products,
+  items: JSONdata,
   filters: []
 }
 
@@ -38,29 +42,29 @@ const reducer = (state = initialState, action) => {
         let newItems = [];
 
         const Filtering = () => {
-
-          if(newFilter.includes("moreThan100")) {
-            let x = Data.products.filter((product) => {
-              return product.price  > 100
-            })
-            return x;
+          if (newFilter.length === 1) {
+            return Data.surfboards
           }
 
-          if (newFilter.includes("lessThan100")) {
-            return null;
+          if (state.filters.length ===1 && state.filters.includes("lessThan100")) {
+            return [];            
+          }
+          if (state.filters.includes("lessThan100")) {
+            return state.items           
           }
 
-          if (newFilter.length > 0) {
-            let x = []
+          let x = []
             
-            newFilter.forEach((item) => {
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
-              newItems = newItems.concat(x)
-            })
-          }
-          return newItems
+          x = JSONdata.filter((product) => {
+            return product.tags.includes(state.surfboard.tag)
+          })
+        
+
+          newItems = newItems.concat(x)
+          newItems= state.items.concat(newItems);
+
+          
+          return newItems;
         }
 
         return {
@@ -78,21 +82,24 @@ const reducer = (state = initialState, action) => {
         let newItems = [];
 
         const Filtering = () => {
-
-          if (newFilter.length > 0) {
-            let x = []
-            
-            newFilter.forEach((item) => {
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
-              newItems = newItems.concat(x)
-            })
-
-            return newItems
+          if (newFilter.length === 0) {
+            return JSONdata
+          } else if (state.filters.includes("moreThan100")) {
+            return JSONdata.surfboards
           }
+          if (newFilter.length === 1 && state.filters.includes("lessThan100")) {
+            return Data.shirts.concat(Data.shoes);            
+          }
+          let x = []
 
-          return Data.products
+          x = state.items.filter((product) => {
+            return !product.tags.includes(state.surfboard.tag)
+          })
+
+          newItems = newItems.concat(x)
+          
+          return newItems;
+
         }
         return {
           ...state,
@@ -114,31 +121,30 @@ const reducer = (state = initialState, action) => {
         let newItems = [];
 
         const Filtering = () => {
-
-          if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
-            let x = Data.products.filter((product) => {
-              return product.price > 100
-            })
-            return x
-          } else if (newFilter.includes("moreThan100")) {
-            return null;
+          if (newFilter.length === 1) {
+            return Data.shoes
+          } else if (state.filters.includes("moreThan100")) {
+            return state.items.concat([]);            
           }
 
-          if (newFilter.length > 0) {
-            let x = []
+          if (state.filters.includes("lessThan100")) {
+            return state.items.filter((product) => {
+              return product.tags.includes("shoes")
+            })
+          }
+
+          let x = []
             
-            newFilter.forEach((item) => {
-              if(item === 'lessThan100') {
-                return null;
-              } else {
-                x = Data.products.filter((product) => {
-                  return product.tags.includes(item)
-                })
-              }
-              newItems = newItems.concat(x)
-            })
-          }
-          return newItems
+          x = JSONdata.filter((product) => {
+            return product.tags.includes(state.shoes.tag)
+          })
+        
+
+          newItems = newItems.concat(x)
+          newItems= state.items.concat(newItems);
+
+          return newItems;
+         
         }
 
         return {
@@ -152,24 +158,22 @@ const reducer = (state = initialState, action) => {
         }
       } else {
         let newFilter = state.filters.filter((filter) => filter !== state.shoes.tag);
-        let newItems = [];
 
         const Filtering = () => {
-
-          if (newFilter.length > 0) {
-            let x = []
-            
-            newFilter.forEach((item) => {
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
-              newItems = newItems.concat(x)
-            })
-
-            return newItems
+          if (newFilter.length === 0) {
+            return JSONdata
           }
 
-          return Data.products
+          if (state.filters.includes("lessThan100")) {
+            return JSONdata.filter((product) => {
+              return product.tags.includes("shoes") || product.tags.includes("shirts")
+            })
+          }
+
+          return state.items.filter((product) => {
+            return !product.tags.includes("shoes")
+          })
+
         }
         return {
           ...state,
@@ -191,23 +195,30 @@ const reducer = (state = initialState, action) => {
           let newItems = [];
 
           const Filtering = () => {
-            
-            if (newFilter.includes("moreThan100")) {
-              return null;
-            }
-            
-            if (newFilter.length > 0) {
-              let x = []
-              
-              newFilter.forEach((item) => {
-                x = Data.products.filter((product) => {
-                  return product.tags.includes(item)
-                })
-                
-                newItems = newItems.concat(x)
+            if (newFilter.length === 1) {
+              return Data.shirts
+            } else if (state.filters.includes("lessThan100")) {
+              console.log(state.items)
+              let x = state.items.filter((product) => {
+                return product.tags.includes(state.shirts.tag)
               })
+              console.log(x)
+              return x;
+
+            } else if (state.filters.includes("moreThan100")) {
+              return state.items.concat([]);            
             }
-            return newItems
+            let x = []
+            
+            x = JSONdata.filter((product) => {
+              return product.tags.includes(state.shirts.tag)
+            })
+          
+  
+            newItems = newItems.concat(x)
+            newItems= state.items.concat(newItems);
+  
+            return newItems;
           }
 
           return {
@@ -221,32 +232,21 @@ const reducer = (state = initialState, action) => {
           }
         } else {
           let newFilter = state.filters.filter((filter) => filter !== state.shirts.tag);
-          let newItems = [];
 
           const Filtering = () => {
-            if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
-              let x = Data.products.filter((product) => {
-                return product.price > 100
+            if (newFilter.length === 0) {
+              return JSONdata
+            }
+            
+            if (state.filters.includes("lessThan100")) {
+              return JSONdata.filter((product) => {
+                return product.tags.includes("shoes") || product.tags.includes("shirts")
               })
-              return x
             }
-            if (newFilter.includes("moreThan100")) {
-              return null;
-            }
-            if (newFilter.length > 0) {
-              let x = []
-              
-              newFilter.forEach((item) => {
-                x = Data.products.filter((product) => {
-                  return product.tags.includes(item)
-                })
-                newItems = newItems.concat(x)
-              })
-
-              return newItems
-            }
-
-            return Data.products
+            
+            return state.items.filter((product) => {
+              return !product.tags.includes("shirts")
+            })
           }
 
           return {
@@ -270,42 +270,20 @@ const reducer = (state = initialState, action) => {
         let newItems = [];
 
         const Filtering = () => {
-
-          if (newFilter.includes("moreThan100") && newFilter.includes("surfboards")) {
-            let x = Data.products.filter((product) => {
-                
-              return product.price > 100;
-            })
-
-            return x
+          if (newFilter.length === 1) {
+            let x = JSONdata.filter((product) => product.price < 100)
+            return x;
           }
 
-          if (newFilter.includes("moreThan100")) {
-            return Data.products
-          }
-          if (newFilter.includes("surfboards")) {
-            return null;
-          }
-
-          if (newFilter.length > 0) {
-            let x = []
+          let x = []
             
-            newFilter.forEach((item, index) => {
-                x = Data.products.filter((product) => {
-                
-                  return product.price < 100;
-                })
-              // }
-              newItems = newItems.concat(x)
-            })
-
-            newItems = newItems.filter((item, index) => {
-              return !newItems.indexOf(item, index + 1) > -1;
-            })
-
-            console.log(newItems)
-          }
-          return newItems
+          x = state.items.filter((product) => {
+            return product.price < 100
+          })
+          newItems = newItems.concat(x)
+          
+          return newItems;
+          
         }
 
         return {
@@ -319,32 +297,12 @@ const reducer = (state = initialState, action) => {
         }
       } else {
         let newFilter = state.filters.filter((filter) => filter !== state.lessThan100.tag);
-        let newItems = [];
 
         const Filtering = () => {
-
-          if (newFilter.includes("moreThan100")) {
-            let x = Data.products.filter((product) => {
-              return product.price > 100;
-            })
-            return x
+          if (newFilter.length === 0) {
+            return JSONdata
           }
-
-          if (newFilter.length > 0) {
-            let x = []
-            
-            newFilter.forEach((item) => {
-              
-              x = Data.products.filter((product) => {
-                return product.tags.includes(item)
-              })
-              newItems = newItems.concat(x)
-            })
-
-            return newItems
-          }
-
-          return Data.products
+         
         }
 
         return {
@@ -367,29 +325,19 @@ const reducer = (state = initialState, action) => {
           let newItems = [];
 
           const Filtering = () => {
-
-            if (newFilter.includes("surfboard")) {
-              let x = Data.products.filter((product) => {
-                return product.price > 100
-              })
-              return x
+            if (newFilter.length === 1) {
+              let x = JSONdata.filter((product) => product.price > 100)
+              return x;
             }
 
-            if(newFilter.includes("shirts") || newFilter.includes("shoes")) {
-              return null;
-            }
-
-            if (newFilter.length > 0) {
-              let x = []
-              
-              newFilter.forEach((item) => {
-                x = Data.products.filter((product) => {
-                  return product.price > 100
-                })
-                newItems = newItems.concat(x)
-              })
-            }
-            return newItems
+            let x = []
+            
+            x = state.items.filter((product) => {
+              return product.price > 100
+            })
+            newItems = newItems.concat(x)
+            
+            return newItems;
           }
 
           return {
@@ -403,31 +351,13 @@ const reducer = (state = initialState, action) => {
           }
         } else {
           let newFilter = state.filters.filter((filter) => filter !== state.moreThan100.tag);
-          let newItems = [];
 
           const Filtering = () => {
 
-            if (newFilter.includes("lessThan100") || newFilter.includes("shirts") || newFilter.includes("shoes")) {
-              let x = Data.products.filter((product) => {
-                return product.price < 100
-              })
-              return x
+            if (newFilter.length === 0) {
+              return JSONdata
             }
-
-            if (newFilter.length > 0) {
-              let x = []
-              
-              newFilter.forEach((item) => {
-                x = Data.products.filter((product) => {
-                  return product.tags.includes(item)
-                })
-                newItems = newItems.concat(x)
-              })
-
-              return newItems
-            }
-
-            return Data.products
+            
           }
 
           return {

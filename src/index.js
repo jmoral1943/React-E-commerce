@@ -8,7 +8,6 @@ import './assets/styles/styles.scss';
 import Home from './components/Home/index';
 import Product from './components/Products/index';
 import ContactUs from './components/ContactUs/index';
-import Cart from './components/Cart/index';
 import PageNotFound from './components/PageNotFound/index';
 import reducer from './store/reducer';
 import Header from './components/Layout/Header/Header';
@@ -28,7 +27,6 @@ const routing = (
         <Route exact path="/" component={Home} />
         <Route path="/products" component={Product} />
         <Route path="/contact" component={ContactUs} />
-        <Route path="/cart" component={Cart} />
         <Route component={PageNotFound} />
       </Switch>
     </main>
