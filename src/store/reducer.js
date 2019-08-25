@@ -1,12 +1,8 @@
 import Data from '../data/products.json';
 import * as actionTypes from './actions';
 
-
-let JSONdata = Data.surfboards.concat(Data.shirts)
-JSONdata = JSONdata.concat(Data.shoes)
-
 const initialState = {
-  items: JSONdata,
+  items: Data.products,
   products: Data.products,
   filter: {
     options: [
@@ -40,6 +36,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case actionTypes.SEARCH :
+      console.log(action.tags)
       return {
         ...state,
         filter: {
@@ -48,11 +45,12 @@ const reducer = (state = initialState, action) => {
         },
         items: state.products.filter(p => {
           let x =  action.tags.reduce((matched, actionTag) => {
-            return matched = matched || p.tags.indexOf(actionTag) >= 0;
+            return matched = matched || p.tags.includes(actionTag);
           }, false);
           return x;
         })
       };
+
 
     default:
       return state;
