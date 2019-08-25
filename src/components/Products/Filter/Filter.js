@@ -14,7 +14,10 @@ const Filter = (props) => (
             name={option.tag} 
             type="button" 
             className="Filter__button" 
-            onClick={() => props.search(option.tag)}
+            onClick={(e) => {
+              e.target.classList.toggle('Active');
+              return props.search(option.tag)
+            }}
           >{option.label}</button>
         ))
       }
@@ -30,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    search: (tag) => dispatch({type: actionTypes.SEARCH, tags:[tag]})
+    search: (tag) => dispatch({type: actionTypes.SEARCH, tags:tag})
   };
 }
 

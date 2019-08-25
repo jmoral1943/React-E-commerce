@@ -36,19 +36,31 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case actionTypes.SEARCH :
-      console.log(action.tags)
+      let tags = [...state.filter.tags]
+
+      const toggleFilter = () => {
+
+        tags.includes(action.tags) ? 
+        tags = tags.filter((tag) => tag !== action.tags)
+        : tags.push(action.tags)
+        console.log(tags)
+
+        return tags
+      }
+      
+
       return {
         ...state,
         filter: {
           ...state.filter,
-          tags: action.tags,
+          tags: toggleFilter(),
         },
-        items: state.products.filter(p => {
-          let x =  action.tags.reduce((matched, actionTag) => {
+        items: tags.length > 0 ? state.products.filter(p => {
+          let x =  tags.reduce((matched, actionTag) => {
             return matched = matched || p.tags.includes(actionTag);
           }, false);
           return x;
-        })
+        }): Data.products
       };
 
 
