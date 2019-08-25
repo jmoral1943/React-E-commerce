@@ -47,10 +47,10 @@ const reducer = (state = initialState, action) => {
           tags: action.tags,
         },
         items: state.products.filter(p => {
-          return action.tags.reduce((matched, actionTag) => {
-            matched = matched || p.tags.indexOf(actionTag) >= 0;
-            return matched;
+          let x =  action.tags.reduce((matched, actionTag) => {
+            return matched = matched || p.tags.indexOf(actionTag) >= 0;
           }, false);
+          return x;
         })
       };
 

@@ -43,11 +43,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // surfboardFilter: () => dispatch({type: actionTypes.SURFBOARD}),
-    // shoesFilter: () => dispatch({type: actionTypes.SHOES}),
-    // shirtsFilter: () => dispatch({type: actionTypes.SHIRTS}),
-    // lessThan100Filter: () => dispatch({type: actionTypes.LESSTHAN100}),
-    // moreThan100Filter: () => dispatch({type: actionTypes.MORETHAN100})
     surfboardFilter: () => dispatch({type: actionTypes.SEARCH, tags:['surfboard']}),
     shoesFilter: () => dispatch({type: actionTypes.SEARCH, tags:['shoes']}),
     shirtsFilter: () => dispatch({type: actionTypes.SEARCH, tags:['shirts']}),

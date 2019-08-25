@@ -10,9 +10,7 @@ const Filter = (props) => {
 
     if (x === 'lessThan100') {
       let button = document.querySelector('button[name="moreThan100"]');
-      console.log(lessThan100Filter)
       lessThan100Filter = !lessThan100Filter;
-      console.log(lessThan100Filter)
 
       if (lessThan100Filter) {
         button.disabled = true;
