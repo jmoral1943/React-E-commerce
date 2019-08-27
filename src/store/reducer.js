@@ -36,33 +36,37 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
 
     case actionTypes.SEARCH :
-      let tags = [...state.filter.tags]
-
-      const toggleFilter = () => {
-
-        tags.includes(action.tags) ? 
-        tags = tags.filter((tag) => tag !== action.tags)
-        : tags.push(action.tags)
-        console.log(tags)
-
-        return tags
+      let tags = [...state.filter.tags];
+      
+      if(tags.includes(action.tag)) {
+        // remove the tag from the existing tags filter if it already exists
+        tags = tags.filter(t => t !== action.tag);
+      } else {
+        // otherwise add the new tag to the filter
+        tags.push(action.tag);
       }
       
+      let items;
+      if (tags.length > 0) {
+        // define the items array based on the matched filters
+        items = state.products.filter(p => {
+          let x =  tags.reduce((matched, actionTag) => {
+            return matched = matched || p.tags.includes(actionTag);
+          }, false);
+          return x;
+        });
+      } else {
+        items = Data.products;
+      }
 
       return {
         ...state,
         filter: {
           ...state.filter,
-          tags: toggleFilter(),
+          tags,
         },
-        items: tags.length > 0 ? state.products.filter(p => {
-          let x =  tags.reduce((matched, actionTag) => {
-            return matched = matched || p.tags.includes(actionTag);
-          }, false);
-          return x;
-        }): Data.products
+        items,
       };
-
 
     default:
       return state;

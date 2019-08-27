@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    search: (tag) => dispatch({type: actionTypes.SEARCH, tags:tag})
+    search: (tag) => dispatch({type: actionTypes.SEARCH, tag})
   };
 }
 
