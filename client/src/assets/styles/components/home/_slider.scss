@@ -35,7 +35,7 @@
   margin: 0 auto 1em auto;
   width: 80vw;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   letter-spacing: 6px;
   line-height: 1.5em;
 }
@@ -44,32 +44,31 @@
 .Slider__rightArrow {
   position: absolute;
   width: 40px;
-  background-color: rgba(255,255,255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
 }
 
 .Slider__leftArrow {
-  top:50%;
-  left:0;
+  top: 50%;
+  left: 0;
 }
 
 .Slider__rightArrow {
-  top:50%;
+  top: 50%;
   right: 0;
-
 }
 
-@media(min-width: 800px) {
+@media (min-width: 800px) {
   .Home__slider {
     width: 100vw;
     height: 100vh;
     position: relative;
   }
-  
+
   .Carousel-container {
     position: relative;
   }
-  
+
   .Carousel {
     position: absolute;
     top: 0;
@@ -80,43 +79,42 @@
     width: 100vw;
     opacity: 0;
   }
-  
+
   .Carousel--starting {
     opacity: 1;
   }
-  
+
   .Slider__text {
     position: absolute;
     top: 30%;
     color: white;
     width: 100vw;
   }
-  
+
   .Slider__header {
     font-size: 2em;
     margin: 0 auto 1em auto;
     width: 80vw;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     letter-spacing: 6px;
   }
-  
+
   .Slider__leftArrow,
   .Slider__rightArrow {
     position: absolute;
     width: 2vw;
-    background-color: rgba(255,255,255, 0.6);
+    background-color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
   }
-  
+
   .Slider__leftArrow {
-    top:50%;
-    left:0;
+    top: 50%;
+    left: 0;
   }
-  
+
   .Slider__rightArrow {
-    top:50%;
+    top: 50%;
     right: 0;
-  
   }
 }
