@@ -10,6 +10,8 @@ class ProductGrid extends React.Component {
   componentDidMount() {
     axios.get("/api/products").then(({ data }) => {
       this.props.updateState(data)
+    }).catch((error) => {
+      throw new Error("Couldn't fetch the data from the database"+ error)
     })
   }
 

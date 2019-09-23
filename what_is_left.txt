@@ -1,10 +1,4 @@
 
-use the Error class
-
-automated test
-mocha/chai
-
-Read.me
 
 
 /// Bonus 
@@ -12,3 +6,5 @@ api for productinvoice/:query get return quantity and price with 8% tax with the
 newcontact endpoint post for posting a newcontact
 deletecontact endpoint delete for remocing contacts
 updatecontact endpoint updates contacts
+
+use the error class
