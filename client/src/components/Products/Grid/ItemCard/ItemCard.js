@@ -6,7 +6,7 @@ const ItemCard = (props) => (
     <div className="Item__card">
       <div className="Item__tag">
         <h3 className="Item__title">{props.name}</h3>
-        <p className="Item__price">${props.price}</p>
+        <p className="Item__price">${props.price.toFixed(2)}</p>
       </div>
       <p className="Item__desc">{props.desc}</p>
     </div>
