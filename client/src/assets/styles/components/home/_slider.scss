@@ -83,6 +83,8 @@
   
   .Carousel--starting {
     opacity: 1;
+    height: 100vh;
+    // margin-top: -50vh;
   }
   
   .Slider__text {
@@ -118,5 +120,13 @@
     top:50%;
     right: 0;
   
+  }
+
+  video {
+    margin: 0;
+    max-width: unset;
+    max-height: unset;
+    height: 500vh;
+
   }
 }
