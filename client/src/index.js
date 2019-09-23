@@ -25,8 +25,8 @@ const routing = (
     <main>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/products" component={Product} />
-        <Route path="/contact" component={ContactUs} />
+        <Route path="/products/" component={Product} />
+        <Route path="/contact/" component={ContactUs} />
         <Route component={PageNotFound} />
       </Switch>
     </main>
